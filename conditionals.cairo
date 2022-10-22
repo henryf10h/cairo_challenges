@@ -8,6 +8,7 @@
 
 // Returns 1 if |x| = |y| (that is, x = y or x = -y),
 // 0 otherwise.
+
 %builtins output
 
 from starkware.cairo.common.serialize import serialize_word
