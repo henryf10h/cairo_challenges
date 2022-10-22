@@ -1,0 +1,37 @@
+// The function `abs_eq` should return 1 if its inputs
+// are equal or differ only in sign and 0 otherwise.
+// Its current implementation is incorrect.
+//
+// 1. Click on "Run" to see the where it fails.
+// 2. Fix the body of `abs_eq`, so that the
+//    program terminates successfully.
+
+// Returns 1 if |x| = |y| (that is, x = y or x = -y),
+// 0 otherwise.
+%builtins output
+
+from starkware.cairo.common.serialize import serialize_word
+
+func abs_eq(x: felt, y: felt) -> (bit: felt) {
+    if (x*x == y*y) {
+        return (bit=1);
+    } else {
+        return (bit=0);
+    }
+}
+
+func main{output_ptr: felt*}() {
+    let (bit) = abs_eq(2, -2);
+    assert bit = 1;
+    serialize_word(bit);
+
+    let (bit) = abs_eq(2, 3);
+    assert bit = 0;
+    serialize_word(bit);
+
+    let (bit) = abs_eq(2, 2);
+    assert bit = 1;
+    serialize_word(bit);
+
+    return ();
+}
