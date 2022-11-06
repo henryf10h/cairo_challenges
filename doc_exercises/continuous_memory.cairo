@@ -14,3 +14,4 @@ func main() {
     [ap + 1] = 67; // the order of access doesn’t matter
     ret;
 }
+
